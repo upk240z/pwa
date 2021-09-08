@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#regex-results li {
+    @apply relative -mb-px block border p-4 border-gray-500;
+}
+
+#regex-results li:first-child {
+    @apply rounded-t-xl;
+}
+
+#regex-results li:last-child {
+    @apply rounded-b-xl;
+}
+
+.regex-item .match-number {
+    @apply bg-green-600 text-white py-1.5 px-3 rounded-full mr-3;
+}
+
+#parts {
+    @apply hidden;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>PWA samples</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="manifest" href="/pwa/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="apple-mobile-web-app-title" content="Temp Converter">
+    <link rel="apple-touch-icon" href="assets/icons/icon-152x152.png">
+    <link rel="shortcut icon" href="assets/favicons/favicon.ico">
+</head>
+<body>
+
+<main class="container mx-auto">
+    <header class="bg-red-800 p-3">
+        <h1 class="text-white font-bold">PWA samples</h1>
+    </header>
+
+    <form id="regex-form" action="">
+        <div class="mt-5 p-5 border border-gray-500 shadow-lg rounded-3xl">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-900">
+                    Regex checker
+                </h2>
+            </div>
+
+            <div class="w-full flex flex-col mb-3">
+                <label class="font-semibold text-gray-600 py-2">Regex</label>
+                <input placeholder="Regex" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="regex" id="regex" required>
+            </div>
+
+            <div class="flex-auto w-full space-y-2 mb-3">
+                <label class="font-semibold text-gray-600 py-2">Target text</label>
+                <textarea name="" id="target-text" class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg py-4 px-4" placeholder="Enter target text" spellcheck="false" required></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="w-full flex justify-center bg-indigo-500 text-gray-100 p-4  rounded-full tracking-wide
+                font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                    Check
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+    <div id="parts">
+        <li class="regex-item">
+            <span class="match-number"></span><span class="match-text"></span>
+        </li>
+    </div>
+
+    <div id="error-alert" class="fixed left-0 top-0 justify-center pt-10 w-full hidden">
+        <div class="w-8/12 m-auto flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300">
+            <div class="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+            <span class="text-red-500">
+                <svg fill="currentColor"
+                     viewBox="0 0 20 20"
+                     class="h-6 w-6">
+                    <path fill-rule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </span>
+            </div>
+            <div class="alert-content ml-4">
+                <div class="alert-title font-semibold text-lg text-red-800">
+                    Error
+                </div>
+                <div class="alert-description text-sm text-red-600">
+                    Error messages.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="regex-modal" class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <!-- modal -->
+        <div class="bg-white rounded shadow-lg w-2/3">
+            <!-- modal header -->
+            <div class="border-b px-4 py-2 flex justify-between items-center">
+                <h3 class="font-semibold text-lg">Match results</h3>
+                <button class="text-black close-modal">&cross;</button>
+            </div>
+            <!-- modal body -->
+            <div class="p-3">
+                <div class="sm:flex sm:items-center px-2 py-4">
+                    <div class="flex-grow">
+                        <ul class="list-reset flex flex-col shadow-lg" id="regex-results">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-end items-center w-100 border-t p-3">
+                <button class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white mr-1 close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<script src="assets/js/app.js" async></script>
+
+</body>
+</html>
