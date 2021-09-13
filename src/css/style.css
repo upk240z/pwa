@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-#regex-results li {
-    @apply relative -mb-px block border p-4 border-gray-500;
-}
-
-#regex-results li:first-child {
-    @apply rounded-t-xl;
-}
-
-#regex-results li:last-child {
-    @apply rounded-b-xl;
+.list-group {
+    li {
+        @apply relative -mb-px block border p-4 border-gray-500;
+        &:first-child {
+            @apply rounded-t-xl;
+        }
+        &:last-child {
+            @apply rounded-b-xl;
+        }
+    }
 }
 
 .regex-item .match-number {
