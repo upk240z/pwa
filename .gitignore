@@ -1,4 +1,6 @@
 /.idea/
 /node_modules/
-/public/assets/
+/public/assets/css/
+/public/assets/js/
 package-lock.json
+/public/service-worker.js
